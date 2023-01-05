@@ -15,14 +15,7 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="1">
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>TextLabel</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0">
+    <item row="0" column="0" rowspan="2">
      <widget class="QGroupBox" name="groupBox">
       <property name="maximumSize">
        <size>
@@ -31,9 +24,9 @@
        </size>
       </property>
       <property name="title">
-       <string>GroupBox</string>
+       <string/>
       </property>
-      <widget class="QComboBox" name="comboBox">
+      <widget class="QComboBox" name="combo_options">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -65,7 +58,7 @@
         </property>
        </item>
       </widget>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="btn_choose_file">
        <property name="geometry">
         <rect>
          <x>100</x>
@@ -84,7 +77,7 @@
         <string>Choose File</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit">
+      <widget class="QLineEdit" name="qline_limit_person">
        <property name="geometry">
         <rect>
          <x>108</x>
@@ -102,7 +95,7 @@ border-radius: 6px;</string>
       <widget class="QLabel" name="label_2">
        <property name="geometry">
         <rect>
-         <x>0</x>
+         <x>1</x>
          <y>93</y>
          <width>100</width>
          <height>16</height>
@@ -120,6 +113,59 @@ border-radius: 6px;</string>
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
+      <widget class="QPushButton" name="btn_start">
+       <property name="geometry">
+        <rect>
+         <x>-2</x>
+         <y>130</y>
+         <width>100</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Start</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_stop">
+       <property name="geometry">
+        <rect>
+         <x>101</x>
+         <y>130</y>
+         <width>100</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Stop</string>
+       </property>
+      </widget>
+     </widget>
+    </item>
+    <item row="0" column="1" rowspan="2">
+     <widget class="QFrame" name="qframe_widget">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+border: 6px;
+border-radius: 6px;</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
      </widget>
     </item>
    </layout>

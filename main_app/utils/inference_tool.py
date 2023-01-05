@@ -75,8 +75,6 @@ def predict(img):
     inputs = torch.unsqueeze(inputs, 0)
     with torch.set_grad_enabled(False):
         outputs = model(inputs)
-    print(outputs.flatten().shape)
-    print(len([i for i in outputs.flatten() if i > 0.01]))
     return torch.sum(outputs).item()
 
  
