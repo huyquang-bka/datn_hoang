@@ -32,8 +32,6 @@ exe = EXE(
     strip=False,
     upx=True,
     console=False,
-    icon="gsan.ico",
-    
 )
 coll = COLLECT(
     exe,
@@ -43,5 +41,5 @@ coll = COLLECT(
     strip=False,
     upx=True,
     upx_exclude=[],
-    name='main',
+    name='Crowd Counting App',
 )

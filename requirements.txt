@@ -1,11 +1,4 @@
-time
-imutils
-queue
-cv2
+opencv-python==4.5.5.64
 torchvision
-threading
 torch
-sys
-PIL
 PyQt5
-os
