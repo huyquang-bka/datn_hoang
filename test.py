@@ -1,24 +1,32 @@
-from main_app.utils.inference_tool import InferenceTool
-import time
-import cv2
-import imutils
+import os
 
 
-infer_tool = InferenceTool()
-path = "resources/Video/japanese_street.mp4"
-cap = cv2.VideoCapture(path)
-
-while True:
-    ret, frame = cap.read()
-    if not ret:
-        break
-    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-    frame = cv2.resize(frame, dsize=None, fx=0.5, fy=0.5)
-    t = time.time()
-    num_person = infer_tool.predict(frame)
-    print("num_person: ", num_person)
-    print("Time: ", time.time() - t)
-    cv2.imshow("frame", frame)
-    key = cv2.waitKey(1)
-    if key == ord("q"):
-        break
+set_modules = set()
+set_files_and_folder = set()
+for root, dirs, files in os.walk("."):
+    for dir in dirs:
+        set_files_and_folder.add(dir)
+    for file in files:
+        set_files_and_folder.add(file.split('.')[0])
+        fp = os.path.join(root, file)
+        if not fp.endswith('.py'):
+            continue
+        with open(fp, 'r') as f:
+            for line in f:
+                if line.startswith('from'):
+                    line = line.split(' ')[1]
+                    set_modules.add(line.strip())
+                elif line.startswith('import'):
+                    line = line.split(' ')[1]
+                    set_modules.add(line.strip())
+                    
+real_modules = set()                    
+for module_ in set_modules:
+    for module in set_files_and_folder:
+        if module not in module_:
+            real_modules.add(module_.split('.')[0])
+            break
+            
+print(real_modules)
+print("main_app" in set_files_and_folder)
+print("main_app.views.controller.c_main_window" in set_modules)
