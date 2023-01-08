@@ -1,0 +1,11 @@
+time
+imutils
+queue
+cv2
+torchvision
+threading
+torch
+sys
+PIL
+PyQt5
+os

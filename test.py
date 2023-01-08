@@ -26,7 +26,9 @@ for module_ in set_modules:
         if module not in module_:
             real_modules.add(module_.split('.')[0])
             break
-            
-print(real_modules)
-print("main_app" in set_files_and_folder)
-print("main_app.views.controller.c_main_window" in set_modules)
+
+with open('requirements.txt', 'w') as f:
+    for module in real_modules:
+        module = module.strip()
+        if module and module != 'main_app':
+            f.write(module + '\n')
