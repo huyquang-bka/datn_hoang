@@ -14,53 +14,81 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_WidgetVideo(object):
     def setupUi(self, WidgetVideo):
         WidgetVideo.setObjectName("WidgetVideo")
-        WidgetVideo.resize(400, 300)
+        WidgetVideo.resize(1440, 784)
         self.gridLayout = QtWidgets.QGridLayout(WidgetVideo)
         self.gridLayout.setObjectName("gridLayout")
         self.groupBox_2 = QtWidgets.QGroupBox(WidgetVideo)
-        self.groupBox_2.setStyleSheet("background-color: rgb(173, 221, 230);")
+        self.groupBox_2.setStyleSheet("background-color: rgb(173, 221, 230);\n"
+"border-radius: 6px;\n"
+"")
         self.groupBox_2.setTitle("")
         self.groupBox_2.setObjectName("groupBox_2")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.groupBox_2)
         self.gridLayout_2.setObjectName("gridLayout_2")
-        self.qlabel_frame = QtWidgets.QLabel(self.groupBox_2)
-        self.qlabel_frame.setStyleSheet("background-color: rgb(0, 0, 0);\n"
-"border: 6px;\n"
-"border-radius: 6px;")
-        self.qlabel_frame.setObjectName("qlabel_frame")
-        self.gridLayout_2.addWidget(self.qlabel_frame, 0, 0, 1, 1)
         self.qlabel_heatmap = QtWidgets.QLabel(self.groupBox_2)
         self.qlabel_heatmap.setStyleSheet("background-color: rgb(0, 0, 0);\n"
 "border: 6px;\n"
 "border-radius: 6px;")
         self.qlabel_heatmap.setObjectName("qlabel_heatmap")
         self.gridLayout_2.addWidget(self.qlabel_heatmap, 0, 1, 1, 1)
+        self.qlabel_frame = QtWidgets.QLabel(self.groupBox_2)
+        self.qlabel_frame.setStyleSheet("background-color: rgb(0, 0, 0);\n"
+"border: 6px;\n"
+"border-radius: 6px;")
+        self.qlabel_frame.setObjectName("qlabel_frame")
+        self.gridLayout_2.addWidget(self.qlabel_frame, 0, 0, 1, 1)
         self.gridLayout.addWidget(self.groupBox_2, 0, 0, 1, 1)
         self.groupBox_3 = QtWidgets.QGroupBox(WidgetVideo)
         self.groupBox_3.setMaximumSize(QtCore.QSize(16777215, 200))
-        self.groupBox_3.setStyleSheet("background-color: rgb(173, 221, 230);")
+        self.groupBox_3.setStyleSheet("background-color: rgb(173, 221, 230);\n"
+"border: 2px solid black;\n"
+"border-radius: 6px;\n"
+"")
         self.groupBox_3.setTitle("")
         self.groupBox_3.setObjectName("groupBox_3")
         self.qlabel_num_of_person = QtWidgets.QLabel(self.groupBox_3)
-        self.qlabel_num_of_person.setGeometry(QtCore.QRect(190, 66, 121, 31))
+        self.qlabel_num_of_person.setGeometry(QtCore.QRect(180, 100, 181, 31))
         self.qlabel_num_of_person.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "border: 2px solid black;\n"
 "border-radius: 6px;")
         self.qlabel_num_of_person.setAlignment(QtCore.Qt.AlignCenter)
         self.qlabel_num_of_person.setObjectName("qlabel_num_of_person")
-        self.label_5 = QtWidgets.QLabel(self.groupBox_3)
-        self.label_5.setGeometry(QtCore.QRect(20, 66, 121, 31))
-        self.label_5.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+        self.qlabel_warning = QtWidgets.QLabel(self.groupBox_3)
+        self.qlabel_warning.setGeometry(QtCore.QRect(180, 140, 181, 31))
+        self.qlabel_warning.setStyleSheet("background-color: rgb(255, 255, 0);\n"
 "border: 2px solid black;\n"
 "border-radius: 6px;")
-        self.label_5.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_5.setObjectName("label_5")
-        self.checkbox_draw_polygon = QtWidgets.QCheckBox(self.groupBox_3)
-        self.checkbox_draw_polygon.setGeometry(QtCore.QRect(20, 20, 121, 20))
-        self.checkbox_draw_polygon.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+        self.qlabel_warning.setAlignment(QtCore.Qt.AlignCenter)
+        self.qlabel_warning.setObjectName("qlabel_warning")
+        self.btn_draw_roi = QtWidgets.QPushButton(self.groupBox_3)
+        self.btn_draw_roi.setGeometry(QtCore.QRect(180, 20, 181, 31))
+        self.btn_draw_roi.setStyleSheet("QPushButton {\n"
+"            background-color: rgb(255, 255, 255); \n"
+"        }\n"
+"QPushButton:pressed {\n"
+"            background-color: rgb(127, 127, 127);\n"
+"        }")
+        self.btn_draw_roi.setObjectName("btn_draw_roi")
+        self.qlabel_crop_frame = QtWidgets.QLabel(self.groupBox_3)
+        self.qlabel_crop_frame.setGeometry(QtCore.QRect(10, 20, 150, 150))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.qlabel_crop_frame.sizePolicy().hasHeightForWidth())
+        self.qlabel_crop_frame.setSizePolicy(sizePolicy)
+        self.qlabel_crop_frame.setMaximumSize(QtCore.QSize(180, 180))
+        self.qlabel_crop_frame.setStyleSheet("background-color: rgb(0, 0, 0);\n"
+"border-radius: 6px;")
+        self.qlabel_crop_frame.setText("")
+        self.qlabel_crop_frame.setObjectName("qlabel_crop_frame")
+        self.qline_limit = QtWidgets.QLineEdit(self.groupBox_3)
+        self.qline_limit.setGeometry(QtCore.QRect(180, 60, 181, 31))
+        self.qline_limit.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "border: 2px solid black;\n"
 "border-radius: 6px;")
-        self.checkbox_draw_polygon.setObjectName("checkbox_draw_polygon")
+        self.qline_limit.setText("")
+        self.qline_limit.setAlignment(QtCore.Qt.AlignCenter)
+        self.qline_limit.setObjectName("qline_limit")
         self.gridLayout.addWidget(self.groupBox_3, 1, 0, 1, 1)
 
         self.retranslateUi(WidgetVideo)
@@ -69,11 +97,12 @@ class Ui_WidgetVideo(object):
     def retranslateUi(self, WidgetVideo):
         _translate = QtCore.QCoreApplication.translate
         WidgetVideo.setWindowTitle(_translate("WidgetVideo", "Form"))
-        self.qlabel_frame.setText(_translate("WidgetVideo", "TextLabel"))
         self.qlabel_heatmap.setText(_translate("WidgetVideo", "TextLabel"))
-        self.qlabel_num_of_person.setText(_translate("WidgetVideo", "0"))
-        self.label_5.setText(_translate("WidgetVideo", "Number of person"))
-        self.checkbox_draw_polygon.setText(_translate("WidgetVideo", "Draw Polygon"))
+        self.qlabel_frame.setText(_translate("WidgetVideo", "TextLabel"))
+        self.qlabel_num_of_person.setText(_translate("WidgetVideo", "People estimate:"))
+        self.qlabel_warning.setText(_translate("WidgetVideo", "Limit !!!"))
+        self.btn_draw_roi.setText(_translate("WidgetVideo", "Draw ROI"))
+        self.qline_limit.setPlaceholderText(_translate("WidgetVideo", "Input limit person"))
 
 
 if __name__ == "__main__":

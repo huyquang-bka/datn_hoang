@@ -1,30 +1,25 @@
 from ..ui.widget_image import Ui_WidgetImage
-from PyQt5.QtWidgets import QWidget, QApplication, QMessageBox
+from PyQt5.QtWidgets import QWidget, QMessageBox
 from PyQt5 import QtGui
-from ...utils.inference_tool import predict
+from ...utils.inference_tool import InferenceTool
 import cv2
 
 
 class WidgetImage(QWidget):
     
-    def __init__(self, parent=None):
+    def __init__(self, parent=None, inference_tool: InferenceTool = ...):
         super().__init__(parent)
         self.ui = Ui_WidgetImage()
         self.ui.setupUi(self)
+        self.inference_tool = inference_tool
     
-    def start(self, file_name, limit_person):
+    def start(self, file_name):
         image = cv2.imread(file_name)
         rgb_img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         self.show_image(rgb_img)
-        num_person = predict(rgb_img)
+        num_person = self.inference_tool.predict(rgb_img)
         num_person = round(num_person)
         self.ui.qlabel_num_of_person.setText(str(num_person))
-        try:
-            limit_person = float(limit_person)
-        except:
-            limit_person = -1
-        if limit_person > 0 and num_person > limit_person:
-            QMessageBox.warning(self, "Warning", "Number of people is greater than limit people")
     
     def stop(self):
         self.ui.qlabel_frame.clear()

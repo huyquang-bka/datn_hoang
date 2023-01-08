@@ -59,24 +59,24 @@ def vgg19():
     return model
 
 
-model = vgg19()
-device = torch.device('cpu')
-model.to(device)
-model.load_state_dict(torch.load('resources/Weights/best_model.pth', map_location=device))
-trans = transforms.Compose([
-                transforms.ToTensor(),
-                transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])
-            ])
+class InferenceTool:
+    def __init__(self, model_path='resources/Weights/best_model.pth', device='cpu'):
+        self.model = vgg19()
+        self.device = torch.device(device)
+        self.model.to(self.device)
+        self.model.load_state_dict(torch.load(model_path, map_location=self.device))
+        self.trans = transforms.Compose([
+                        transforms.ToTensor(),
+                        transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])
+                    ])
 
-def predict(img):
-    img = Image.fromarray(img).convert("RGB")
-    img = trans(img)
-    inputs = img.to(device)
-    inputs = torch.unsqueeze(inputs, 0)
-    with torch.set_grad_enabled(False):
-        outputs = model(inputs)
-    print(outputs.flatten().shape)
-    print(len([i for i in outputs.flatten() if i > 0.01]))
-    return torch.sum(outputs).item()
+    def predict(self, img):
+        img = Image.fromarray(img).convert("RGB")
+        img = self.trans(img)
+        inputs = img.to(self.device)
+        inputs = torch.unsqueeze(inputs, 0)
+        with torch.set_grad_enabled(False):
+            outputs = self.model(inputs)
+        return torch.sum(outputs).item()
 
  

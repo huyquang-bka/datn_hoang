@@ -1,7 +1,9 @@
+import time
 from ..ui.main_window import Ui_MainWindow
 from PyQt5.QtWidgets import QMainWindow, QFileDialog, QGridLayout, QVBoxLayout, QMessageBox
 from .c_widget_image import WidgetImage
 from .c_widget_video import WidgetVideo
+from ...utils.inference_tool import InferenceTool
 
 
 class MainWindow(QMainWindow):
@@ -9,18 +11,20 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__(parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.setWindowTitle("Crowd Counting App")
         
         #define variables
         self.define_variables()
         
         #connect btn signals
         self.connect_btn_signals()
-        
+                        
     def define_variables(self):
         self.file_name = ""
+        self.inference_tool = InferenceTool()
         
-        self.widget_image = WidgetImage()
-        self.widget_video = WidgetVideo()
+        self.widget_image = WidgetImage(inference_tool=self.inference_tool)
+        self.widget_video = WidgetVideo(inference_tool=self.inference_tool)
         
         self.grid_layout_cameras = QGridLayout()
         self.grid_layout_cameras.setContentsMargins(0, 0, 0, 0)
@@ -45,6 +49,7 @@ class MainWindow(QMainWindow):
         elif self.current_option_index == 1:
             file_name, _ = QFileDialog.getOpenFileName(self, 'Open File', '', 'Video Files (*.mp4 *.mov *.avi)')
         self.file_name = file_name
+        self.ui.qtext_file_path.setText(self.file_name)
 
     def change_option(self):
         print("change_option: ", self.ui.combo_options.currentIndex())
@@ -62,15 +67,18 @@ class MainWindow(QMainWindow):
         if not self.file_name or self.file_name is None:
             QMessageBox.about(self, "Error", "Please choose a file")
             return
-        limit_person = self.ui.qline_limit_person.text()
         if self.current_option_index == 0:
-            self.widget_image.start(self.file_name, limit_person)
+            self.widget_image.start(self.file_name)
         elif self.current_option_index == 1:
-            self.widget_video.start(self.file_name, limit_person)
+            self.widget_video.start(self.file_name)
+            self.ui.btn_start.setEnabled(False)
+            self.ui.btn_stop.setEnabled(True)
     
     def stop(self):
         if self.current_option_index == 0:
             self.widget_image.stop()
         elif self.current_option_index == 1:
             self.widget_video.stop()
+            self.ui.btn_start.setEnabled(True)
+            self.ui.btn_stop.setEnabled(False)
             

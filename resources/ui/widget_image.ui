@@ -23,7 +23,9 @@
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(173, 211,230);</string>
+      <string notr="true">background-color: rgb(173, 211,230);
+border: 2px solid black;
+border-radius: 6px</string>
      </property>
      <property name="title">
       <string/>

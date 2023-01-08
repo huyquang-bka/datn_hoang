@@ -19,7 +19,9 @@ class Ui_WidgetImage(object):
         self.gridLayout.setObjectName("gridLayout")
         self.groupBox_3 = QtWidgets.QGroupBox(WidgetImage)
         self.groupBox_3.setMaximumSize(QtCore.QSize(16777215, 200))
-        self.groupBox_3.setStyleSheet("background-color: rgb(173, 211,230);")
+        self.groupBox_3.setStyleSheet("background-color: rgb(173, 211,230);\n"
+"border: 2px solid black;\n"
+"border-radius: 6px")
         self.groupBox_3.setTitle("")
         self.groupBox_3.setObjectName("groupBox_3")
         self.qlabel_num_of_person = QtWidgets.QLabel(self.groupBox_3)

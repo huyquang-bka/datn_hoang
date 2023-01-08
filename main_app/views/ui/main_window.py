@@ -38,27 +38,19 @@ class Ui_MainWindow(object):
         self.btn_choose_file.setGeometry(QtCore.QRect(100, 38, 100, 26))
         self.btn_choose_file.setMinimumSize(QtCore.QSize(0, 0))
         self.btn_choose_file.setObjectName("btn_choose_file")
-        self.qline_limit_person = QtWidgets.QLineEdit(self.groupBox)
-        self.qline_limit_person.setGeometry(QtCore.QRect(108, 90, 87, 21))
-        self.qline_limit_person.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"border: 6px;\n"
-"border-radius: 6px;")
-        self.qline_limit_person.setObjectName("qline_limit_person")
-        self.label_2 = QtWidgets.QLabel(self.groupBox)
-        self.label_2.setGeometry(QtCore.QRect(1, 93, 100, 16))
-        self.label_2.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"border: 6px;\n"
-"border-radius: 6px;")
-        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_2.setObjectName("label_2")
         self.btn_start = QtWidgets.QPushButton(self.groupBox)
-        self.btn_start.setGeometry(QtCore.QRect(-2, 130, 100, 26))
+        self.btn_start.setGeometry(QtCore.QRect(-2, 150, 100, 26))
         self.btn_start.setMinimumSize(QtCore.QSize(0, 0))
         self.btn_start.setObjectName("btn_start")
         self.btn_stop = QtWidgets.QPushButton(self.groupBox)
-        self.btn_stop.setGeometry(QtCore.QRect(101, 130, 100, 26))
+        self.btn_stop.setGeometry(QtCore.QRect(101, 150, 100, 26))
         self.btn_stop.setMinimumSize(QtCore.QSize(0, 0))
         self.btn_stop.setObjectName("btn_stop")
+        self.qtext_file_path = QtWidgets.QTextEdit(self.groupBox)
+        self.qtext_file_path.setGeometry(QtCore.QRect(0, 80, 191, 51))
+        self.qtext_file_path.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border-radius: 6px;")
+        self.qtext_file_path.setObjectName("qtext_file_path")
         self.gridLayout.addWidget(self.groupBox, 0, 0, 2, 1)
         self.qframe_widget = QtWidgets.QFrame(self.centralwidget)
         self.qframe_widget.setStyleSheet("background-color: rgb(255, 255, 255);\n"
@@ -86,9 +78,13 @@ class Ui_MainWindow(object):
         self.combo_options.setItemText(0, _translate("MainWindow", "Image"))
         self.combo_options.setItemText(1, _translate("MainWindow", "Video"))
         self.btn_choose_file.setText(_translate("MainWindow", "Choose File"))
-        self.label_2.setText(_translate("MainWindow", "Limit Person"))
         self.btn_start.setText(_translate("MainWindow", "Start"))
         self.btn_stop.setText(_translate("MainWindow", "Stop"))
+        self.qtext_file_path.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'.AppleSystemUIFont\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
 
 
 if __name__ == "__main__":
