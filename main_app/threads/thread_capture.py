@@ -16,6 +16,14 @@ class ThreadCapture(QtCore.QThread):
         
         self.is_inference = False
         
+        self.setup_source()
+        
+    def setup_source(self):
+        try:
+            self.file_name = int(self.file_name)
+        except:
+            pass
+        
     def get_roi(self, roi):
         self.roi = roi
         

@@ -1,6 +1,6 @@
 import time
 from ..ui.main_window import Ui_MainWindow
-from PyQt5.QtWidgets import QMainWindow, QFileDialog, QGridLayout, QVBoxLayout, QMessageBox
+from PyQt5.QtWidgets import QMainWindow, QFileDialog, QGridLayout, QMessageBox
 from .c_widget_image import WidgetImage
 from .c_widget_video import WidgetVideo
 from ...utils.inference_tool import InferenceTool
@@ -64,13 +64,14 @@ class MainWindow(QMainWindow):
             self.widget_video.show()
 
     def start(self):
-        if not self.file_name or self.file_name is None:
+        fn = self.ui.qtext_file_path.toPlainText()
+        if not fn:
             QMessageBox.about(self, "Error", "Please choose a file")
             return
         if self.current_option_index == 0:
-            self.widget_image.start(self.file_name)
+            self.widget_image.start(fn)
         elif self.current_option_index == 1:
-            self.widget_video.start(self.file_name)
+            self.widget_video.start(fn)
             self.ui.btn_start.setEnabled(False)
             self.ui.btn_stop.setEnabled(True)
     
