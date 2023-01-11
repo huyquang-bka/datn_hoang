@@ -73,7 +73,7 @@ border-radius: 6px;
       <property name="geometry">
        <rect>
         <x>180</x>
-        <y>100</y>
+        <y>140</y>
         <width>181</width>
         <height>31</height>
        </rect>
@@ -93,16 +93,19 @@ border-radius: 6px;</string>
      <widget class="QLabel" name="qlabel_warning">
       <property name="geometry">
        <rect>
-        <x>180</x>
-        <y>140</y>
-        <width>181</width>
-        <height>31</height>
+        <x>380</x>
+        <y>20</y>
+        <width>351</width>
+        <height>151</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 0);
+       <string notr="true">background-color: rgb(255, 0, 0);
 border: 2px solid black;
-border-radius: 6px;</string>
+border-radius: 6px;
+color: rgb(255, 255, 255);
+font-weight: bold;
+font-size: 50pt;</string>
       </property>
       <property name="text">
        <string>Limit !!!</string>
@@ -165,7 +168,7 @@ border-radius: 6px;</string>
       <property name="geometry">
        <rect>
         <x>180</x>
-        <y>60</y>
+        <y>80</y>
         <width>181</width>
         <height>31</height>
        </rect>

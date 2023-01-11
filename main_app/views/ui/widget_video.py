@@ -47,17 +47,20 @@ class Ui_WidgetVideo(object):
         self.groupBox_3.setTitle("")
         self.groupBox_3.setObjectName("groupBox_3")
         self.qlabel_num_of_person = QtWidgets.QLabel(self.groupBox_3)
-        self.qlabel_num_of_person.setGeometry(QtCore.QRect(180, 100, 181, 31))
+        self.qlabel_num_of_person.setGeometry(QtCore.QRect(180, 140, 181, 31))
         self.qlabel_num_of_person.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "border: 2px solid black;\n"
 "border-radius: 6px;")
         self.qlabel_num_of_person.setAlignment(QtCore.Qt.AlignCenter)
         self.qlabel_num_of_person.setObjectName("qlabel_num_of_person")
         self.qlabel_warning = QtWidgets.QLabel(self.groupBox_3)
-        self.qlabel_warning.setGeometry(QtCore.QRect(180, 140, 181, 31))
-        self.qlabel_warning.setStyleSheet("background-color: rgb(255, 255, 0);\n"
+        self.qlabel_warning.setGeometry(QtCore.QRect(380, 20, 351, 151))
+        self.qlabel_warning.setStyleSheet("background-color: rgb(255, 0, 0);\n"
 "border: 2px solid black;\n"
-"border-radius: 6px;")
+"border-radius: 6px;\n"
+"color: rgb(255, 255, 255);\n"
+"font-weight: bold;\n"
+"font-size: 50pt;")
         self.qlabel_warning.setAlignment(QtCore.Qt.AlignCenter)
         self.qlabel_warning.setObjectName("qlabel_warning")
         self.btn_draw_roi = QtWidgets.QPushButton(self.groupBox_3)
@@ -82,7 +85,7 @@ class Ui_WidgetVideo(object):
         self.qlabel_crop_frame.setText("")
         self.qlabel_crop_frame.setObjectName("qlabel_crop_frame")
         self.qline_limit = QtWidgets.QLineEdit(self.groupBox_3)
-        self.qline_limit.setGeometry(QtCore.QRect(180, 60, 181, 31))
+        self.qline_limit.setGeometry(QtCore.QRect(180, 80, 181, 31))
         self.qline_limit.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "border: 2px solid black;\n"
 "border-radius: 6px;")

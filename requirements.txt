@@ -1,4 +1,6 @@
+imutils
 opencv-python==4.5.5.64
 torchvision
 torch
 PyQt5
+pyinstaller
