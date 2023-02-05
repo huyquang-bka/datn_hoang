@@ -14,7 +14,7 @@ class WidgetGraph(QtWidgets.QLabel):
         self.graph.setTitle("Graph of people estimate", color="r", size="20pt")
         self.graph.setLabel("left", "People estimate", **self.styles)
         self.graph.setLabel("bottom", "Time", **self.styles)
-        self.graph.addLegend()
+        # self.graph.addLegend()
         self.list_x = deque(maxlen=10)
         self.list_y = deque(maxlen=10)
         
