@@ -73,7 +73,7 @@ border-radius: 6px;
       <property name="geometry">
        <rect>
         <x>180</x>
-        <y>140</y>
+        <y>100</y>
         <width>181</width>
         <height>31</height>
        </rect>
@@ -168,7 +168,7 @@ border-radius: 6px;</string>
       <property name="geometry">
        <rect>
         <x>180</x>
-        <y>80</y>
+        <y>60</y>
         <width>181</width>
         <height>31</height>
        </rect>
@@ -186,6 +186,27 @@ border-radius: 6px;</string>
       </property>
       <property name="placeholderText">
        <string>Input limit person</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_view_graph">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>140</y>
+        <width>181</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+            background-color: rgb(255, 255, 255); 
+        }
+QPushButton:pressed {
+            background-color: rgb(127, 127, 127);
+        }</string>
+      </property>
+      <property name="text">
+       <string>View Graph</string>
       </property>
      </widget>
     </widget>

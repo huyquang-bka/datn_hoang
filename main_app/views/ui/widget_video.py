@@ -47,7 +47,7 @@ class Ui_WidgetVideo(object):
         self.groupBox_3.setTitle("")
         self.groupBox_3.setObjectName("groupBox_3")
         self.qlabel_num_of_person = QtWidgets.QLabel(self.groupBox_3)
-        self.qlabel_num_of_person.setGeometry(QtCore.QRect(180, 140, 181, 31))
+        self.qlabel_num_of_person.setGeometry(QtCore.QRect(180, 100, 181, 31))
         self.qlabel_num_of_person.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "border: 2px solid black;\n"
 "border-radius: 6px;")
@@ -85,13 +85,22 @@ class Ui_WidgetVideo(object):
         self.qlabel_crop_frame.setText("")
         self.qlabel_crop_frame.setObjectName("qlabel_crop_frame")
         self.qline_limit = QtWidgets.QLineEdit(self.groupBox_3)
-        self.qline_limit.setGeometry(QtCore.QRect(180, 80, 181, 31))
+        self.qline_limit.setGeometry(QtCore.QRect(180, 60, 181, 31))
         self.qline_limit.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "border: 2px solid black;\n"
 "border-radius: 6px;")
         self.qline_limit.setText("")
         self.qline_limit.setAlignment(QtCore.Qt.AlignCenter)
         self.qline_limit.setObjectName("qline_limit")
+        self.btn_view_graph = QtWidgets.QPushButton(self.groupBox_3)
+        self.btn_view_graph.setGeometry(QtCore.QRect(180, 140, 181, 31))
+        self.btn_view_graph.setStyleSheet("QPushButton {\n"
+"            background-color: rgb(255, 255, 255); \n"
+"        }\n"
+"QPushButton:pressed {\n"
+"            background-color: rgb(127, 127, 127);\n"
+"        }")
+        self.btn_view_graph.setObjectName("btn_view_graph")
         self.gridLayout.addWidget(self.groupBox_3, 1, 0, 1, 1)
 
         self.retranslateUi(WidgetVideo)
@@ -106,6 +115,7 @@ class Ui_WidgetVideo(object):
         self.qlabel_warning.setText(_translate("WidgetVideo", "Limit !!!"))
         self.btn_draw_roi.setText(_translate("WidgetVideo", "Draw ROI"))
         self.qline_limit.setPlaceholderText(_translate("WidgetVideo", "Input limit person"))
+        self.btn_view_graph.setText(_translate("WidgetVideo", "View Graph"))
 
 
 if __name__ == "__main__":

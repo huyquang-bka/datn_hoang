@@ -43,11 +43,18 @@ class ThreadCapture(QtCore.QThread):
         print("ThreadCapture: Start. File name: {}".format(self.file_name))
         self.__thread_active = True
         cap = cv2.VideoCapture(self.file_name)
+        if "mp4" in self.file_name or "avi" in self.file_name or "mkv" in self.file_name or "mov" in self.file_name:
+            fps = cap.get(cv2.CAP_PROP_FPS)
+        else:
+            fps = 0
+        count = 0
         while self.__thread_active:
             ret, frame = cap.read()
             if not ret:
                 cap = cv2.VideoCapture(self.file_name)
+                count = 0
                 continue
+            count += 1
             x1, y1, x2, y2 = self.scale_to_roi(self.roi, frame.shape)
             frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             if self.capture_queue_heatmap.empty():
@@ -58,7 +65,7 @@ class ThreadCapture(QtCore.QThread):
             if self.capture_queue.empty() and not self.is_inference:
                 crop_frame = frame[y1:y2, x1:x2]
                 if frame.shape != crop_frame.shape:
-                    self.capture_queue.put(crop_frame)
+                    self.capture_queue.put([crop_frame, count, fps])
                     self.is_inference = True
             self.msleep(30)
     

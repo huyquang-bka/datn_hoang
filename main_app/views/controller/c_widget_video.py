@@ -2,6 +2,7 @@ import time
 import cv2
 from ..ui.widget_video import Ui_WidgetVideo
 from .c_widget_draw import WidgetDraw
+from .c_widget_graph import WidgetGraph
 from PyQt5.QtWidgets import QWidget, QMessageBox
 from PyQt5 import QtGui, QtCore
 from ...threads.thread_capture import ThreadCapture
@@ -17,6 +18,7 @@ class WidgetVideo(QWidget):
         self.ui.setupUi(self)
         
         self.widget_draw = WidgetDraw()
+        self.widget_graph = WidgetGraph()
         
         self.frame = None
         
@@ -57,6 +59,7 @@ class WidgetVideo(QWidget):
     
     def connect_button_signal(self):
         self.ui.btn_draw_roi.clicked.connect(self.draw_roi)
+        self.ui.btn_view_graph.clicked.connect(self.view_graph)
         
     def draw_roi(self):
         if self.frame is None:
@@ -65,10 +68,14 @@ class WidgetVideo(QWidget):
         self.widget_draw.set_frame(self.frame)
         self.widget_draw.show()
     
+    def view_graph(self):
+        self.widget_graph.show()
+    
     def connect_signal(self):
         self.thread_inference.sig_num_person.connect(self.get_num_person)
         self.widget_draw.sig_roi.connect(self.thread_capture.get_roi)
         self.thread_inference.sig_is_inference.connect(self.thread_capture.get_inference_status)
+        self.thread_inference.sig_graph.connect(self.widget_graph.slot_graph)
         # pass
         
     def get_num_person(self, num_person):
