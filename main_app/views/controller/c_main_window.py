@@ -71,6 +71,7 @@ class MainWindow(QMainWindow):
         if self.current_option_index == 0:
             self.widget_image.start(fn)
         elif self.current_option_index == 1:
+            self.widget_video.widget_graph.stop()
             self.widget_video.start(fn)
             self.ui.btn_start.setEnabled(False)
             self.ui.btn_stop.setEnabled(True)
@@ -80,6 +81,7 @@ class MainWindow(QMainWindow):
             self.widget_image.stop()
         elif self.current_option_index == 1:
             self.widget_video.stop()
+            self.widget_video.widget_graph.stop()
             self.ui.btn_start.setEnabled(True)
             self.ui.btn_stop.setEnabled(False)
             

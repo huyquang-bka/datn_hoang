@@ -69,6 +69,7 @@ class WidgetVideo(QWidget):
         self.widget_draw.show()
     
     def view_graph(self):
+        self.widget_graph.raise_()
         self.widget_graph.show()
     
     def connect_signal(self):
