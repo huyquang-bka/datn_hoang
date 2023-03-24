@@ -1,10 +1,8 @@
-import time
 import torch
 import torch.nn as nn
 from torch.nn import functional as F
 from PIL import Image
 from torchvision import transforms
-from threading import Thread
 
 
 __all__ = ['vgg19']
@@ -69,7 +67,7 @@ class InferenceTool:
                         transforms.ToTensor(),
                         transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])
                     ])
-
+ 
     def predict(self, img):
         img = Image.fromarray(img).convert("RGB")
         img = self.trans(img)
@@ -80,3 +78,8 @@ class InferenceTool:
         return torch.sum(outputs).item()
 
  
+if __name__ == "__main__":
+    import cv2
+    inference_tool = InferenceTool(model_path='resources/Weights/best_model.pth', device='cpu')
+    image = cv2.imread('/Users/huyquang/Downloads/15.jpg')
+    print(inference_tool.predict(image))

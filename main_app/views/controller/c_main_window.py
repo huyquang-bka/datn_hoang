@@ -47,7 +47,7 @@ class MainWindow(QMainWindow):
         if self.current_option_index == 0:
             file_name, _ = QFileDialog.getOpenFileName(self, 'Open File', '', 'Image Files (*.png *.jpg *.jpeg)')
         elif self.current_option_index == 1:
-            file_name, _ = QFileDialog.getOpenFileName(self, 'Open File', '', 'Video Files (*.mp4 *.mov *.avi)')
+            file_name, _ = QFileDialog.getOpenFileName(self, 'Open File', '', 'Video Files (*.mp4 *.mov *.avi *.MTS)')
         self.file_name = file_name
         self.ui.qtext_file_path.setText(self.file_name)
 
@@ -64,15 +64,15 @@ class MainWindow(QMainWindow):
             self.widget_video.show()
 
     def start(self):
-        fn = self.ui.qtext_file_path.toPlainText()
-        if not fn:
+        fp = self.ui.qtext_file_path.toPlainText()
+        if not fp:
             QMessageBox.about(self, "Error", "Please choose a file")
             return
         if self.current_option_index == 0:
-            self.widget_image.start(fn)
+            self.widget_image.start(fp)
         elif self.current_option_index == 1:
             self.widget_video.widget_graph.stop()
-            self.widget_video.start(fn)
+            self.widget_video.start(fp)
             self.ui.btn_start.setEnabled(False)
             self.ui.btn_stop.setEnabled(True)
     
